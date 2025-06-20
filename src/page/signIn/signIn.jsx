@@ -3,7 +3,7 @@ import "../signIn/signIn.scss";
 import User from "../../assets/user.svg"; 
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { loginUser as apiLoginUser, fetchUserProfile } from '../../api/api';
+import { loginUser as apiLoginUser} from '../../api/api';
 import { loginUserSuccess } from '../../redux/slice';
 import Header from "../../component/header/header";
 import Footer from "../../component/footer/footer";
@@ -40,8 +40,8 @@ const SignIn = () => {
 
             try {
                 // Récupération et stockage du profil utilisateur
-                const userProfile = await fetchUserProfile(token);
-                dispatch(loginUserSuccess({ user: userProfile, token }));
+                
+                dispatch(loginUserSuccess({ token }));
             // eslint-disable-next-line no-unused-vars
             } catch (err) {
                 setError("Impossible de retrouver les détails de l'utilisateur.");
